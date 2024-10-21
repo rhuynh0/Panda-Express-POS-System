@@ -27,6 +27,8 @@ public class CashierFunctions {
     private Connection conn;
 
     /**
+     * Cashier constructor.
+     * 
      * @param conn The database connection
      * @param cashierID The ID of the cashier
      */
@@ -38,6 +40,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Returns list of items ordered.
+     * 
      * @return The list of items ordered
      */
     public List<MenuItem> getItemsOrdered() {
@@ -45,6 +49,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Returns menu items from the database.
+     * 
      * @return A list of all menu items
      * @throws SQLException If there's an error retrieving menu items
      */
@@ -67,6 +73,8 @@ public class CashierFunctions {
     }
     
     /**
+     * Gets price for specific menu item.
+     * 
      * @param menuItemID The ID of the menu item
      * @return The price of the menu item
      * @throws SQLException If the menu item is not found
@@ -86,6 +94,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Removes item from current order.
+     * 
      * @param item The menu item to remove from the order
      */
     public void removeFromOrder(MenuItem item) {
@@ -93,6 +103,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Returns subtotal of current order.
+     * 
      * @return The subtotal of the current order
      */
     public double getSubtotal() {
@@ -105,6 +117,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Returns the taxes for current order.
+     * 
      * @return The tax amount for the current order
      */
     public double getTaxes() {
@@ -112,6 +126,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Returns total for current order.
+     * 
      * @return The total amount for the current order, including taxes
      */
     public double getTotal() {
@@ -119,6 +135,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Adds item to current order.
+     * 
      * @param item The menu item to add to the order
      */
     public void addToOrder(MenuItem item) {
@@ -126,6 +144,9 @@ public class CashierFunctions {
     }
 
     /**
+     * Submits and processes order. Updates associated inventory 
+     * item quantities in the inventory database.
+     * 
      * @param items The list of menu items to submit as an order
      * @throws SQLException If there's an error submitting the order
      * @throws IllegalStateException If the order is empty
@@ -184,9 +205,6 @@ public class CashierFunctions {
      * Updates the inventory quantities by subtracting the quantities used in each menu item.
      * For each MenuItem in the list, this method will update the associated
      * inventory records, reducing the current inventory by the specified quantity.
-     *
-     * @param items the list of {@link MenuItem} objects that represent menu items and their inventory usage
-     * @throws SQLException if a database access error occurs, or the SQL query is incorrect
      */
     public void updateInventory() {
         String orderQuery = "UPDATE inventory SET quantityinstock = inventory.quantityinstock - mi.quantityused FROM menuiteminventory mi WHERE inventory.inventoryid = mi.inventoryid AND mi.menuid = ?;";
@@ -213,6 +231,8 @@ public class CashierFunctions {
     }
 
     /**
+     * Fetches the name from te menu item id.
+     * 
      * @param menuItemID The ID of the menu item
      * @return The name of the menu item
      * @throws SQLException If the menu item is not found

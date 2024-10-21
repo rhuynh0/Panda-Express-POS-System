@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Employee;
 import models.Inventory;
-import models.MenuItem;
 import models.InventoryUsage;
+import models.MenuItem;
 
 /**
  * Functions that are needed for a manager including getting and setting databases
@@ -26,6 +26,8 @@ public class ManagerFunctions {
     private final Connection conn;
 
     /**
+     * Manager constructor.
+     * 
      * @param conn The database connection
      */
     public ManagerFunctions(Connection conn) {
@@ -33,6 +35,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Sets the price of a menu item in the database.
+     * 
      * @param menuItem The name of the menu item
      * @param price The new price for the menu item
      */
@@ -53,6 +57,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Fetches price for specific menu item.
+     * 
      * @param id The ID of the menu item
      * @return The price of the menu item
      * @throws SQLException If the menu item is not found
@@ -72,6 +78,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Returns list of menu items.
+     * 
      * @return A list of all menu items
      * @throws SQLException If there's an error retrieving menu items
      */
@@ -94,7 +102,8 @@ public class ManagerFunctions {
     }
     
     /**
-     * @param menuid The ID of the menu item
+     * Sets new information for menu items.
+     * 
      * @param menuName The new name of the menu item
      * @param type The new type of the menu item
      * @param price The new price of the menu item
@@ -118,6 +127,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Adds menu item to database.
+     * 
      * @param menuName The name of the new menu item
      * @param type The type of the new menu item
      * @param price The price of the new menu item
@@ -141,7 +152,9 @@ public class ManagerFunctions {
     }
 
     /**
-     * @param menuID The ID of the menu item to remove
+     * Removes menu item from database.
+     * 
+     * @param menuname The name of the menu item to remove
      */
     public void removeMenuItem(String menuname) {
         String query = "DELETE FROM MenuItem WHERE menuname = ?";
@@ -160,6 +173,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Gets inventory items from database.
+     * 
      * @return A list of all inventory items
      * @throws SQLException If there's an error retrieving inventory items
      */
@@ -185,6 +200,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Gets in stock quantity from item in database.
+     * 
      * @param inventoryId The ID of the inventory item
      * @return The quantity in stock of the inventory item
      * @throws SQLException If the inventory item is not found
@@ -204,7 +221,8 @@ public class ManagerFunctions {
     }
 
     /**
-     * @param id The ID of the inventory item
+     * Sets new information for inventory items.
+     * 
      * @param itemName The new name of the inventory item
      * @param quantityInStock The new quantity in stock
      * @param quantityUnits The new quantity units
@@ -233,7 +251,9 @@ public class ManagerFunctions {
     }
 
     /**
-     * @param id The ID of the inventory item to remove
+     * Removes item from inventory.
+     * 
+     * @param itemname The name of the inventory item to remove
      */
     public void removeInventory(String itemname) {
         String query = "DELETE FROM inventory WHERE itemname = ?";
@@ -254,6 +274,8 @@ public class ManagerFunctions {
 
 
     /**
+     * Adds new item to inventory database.
+     * 
      * @param itemName The name of the new inventory item
      * @param quantityInStock The quantity in stock of the new item
      * @param quantityUnits The quantity units of the new item
@@ -284,6 +306,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Gets employee from database by id.
+     * 
      * @param id The ID of the employee
      * @return The Employee object
      * @throws SQLException If the employee is not found
@@ -310,6 +334,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Returns list of employees from database.
+     * 
      * @return A list of all employees
      * @throws SQLException If there's an error retrieving employees
      */
@@ -334,7 +360,8 @@ public class ManagerFunctions {
     }
 
     /**
-     * @param id The ID of the employee to update
+     * Sets information for employees.
+     * 
      * @param employeeName The new name of the employee
      * @param jobTitle The new job title of the employee
      * @param startDate The new start date of the employee
@@ -360,6 +387,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Adds employee to database.
+     * 
      * @param employeeName The name of the new employee
      * @param jobTitle The job title of the new employee
      * @param startDate The start date of the new employee
@@ -385,7 +414,9 @@ public class ManagerFunctions {
     }
 
     /**
-     * @param id The ID of the employee to remove
+     * Removes employee from database.
+     * 
+     * @param employeeName The name of the employee to remove
      */
     public void removeEmployee(String employeeName) {
         String query = "DELETE FROM Employees WHERE employeename = ?";
@@ -404,6 +435,8 @@ public class ManagerFunctions {
     }
 
     /**
+     * Returns employees in a specfic shift.
+     * 
      * @param shiftId The ID of the shift
      * @return A list of employee information for the given shift
      */
@@ -436,6 +469,8 @@ public class ManagerFunctions {
     }
     
     /**
+     * Gets shift ID from time and date.
+     * 
      * @param shiftDate The date of the shift
      * @param shiftStartTime The start time of the shift
      * @return The shift ID, or null if not found
@@ -460,6 +495,8 @@ public class ManagerFunctions {
     }
     
     /**
+     * Returns employee hours in list.
+     * 
      * @param startDate The start date of the report period
      * @param endDate The end date of the report period
      * @return A list of employee hours data
@@ -494,6 +531,8 @@ public class ManagerFunctions {
     }
     
     /**
+     * Gets sales report for a specific time frame.
+     * 
      * @param startDate The start date of the report period
      * @param endDate The end date of the report period
      * @return A list of sales report data by item
@@ -532,6 +571,13 @@ public class ManagerFunctions {
         return returnArray;
     }
 
+    /**
+     * Returns a list of popular items in a specific time period.
+     * 
+     * @param startDate The start date of the report period
+     * @param endDate The end date of the report period
+     * @return A list of menu items by popularity
+     */
     public List<String> getMenuItemsPopularityAnalysis(Date startDate, Date endDate) {
         String query = "SELECT mi.menuname, COUNT(omi.menuitemid) AS totalQuantity " +
                        "FROM Orders o " +
@@ -572,6 +618,13 @@ public class ManagerFunctions {
         return report;
     }
 
+    /**
+     * Returns a list of inventory usage in a time frame.
+     * 
+     * @param startDate The start date of the report period
+     * @param endDate The end date of the report period
+     * @return A list of inventory usage
+     */
     public List<InventoryUsage> getInventoryUsage(Date startDate, Date endDate) {
         String query = "SELECT i.itemname, SUM(mii.quantityUsed) AS totalQuantity, i.quantityUnits " +
                        "FROM Orders o " +
@@ -602,6 +655,11 @@ public class ManagerFunctions {
         return inventoryUsage;
     }
 
+    /**
+     * Returns a list of sales numbers by hour
+     * 
+     * @return A list of sales numbers by hour
+     */
     public List<String> getXReport() {
         String query = "SELECT EXTRACT(HOUR FROM ordertime) AS hour, " +
                        "COUNT(orderid) AS totalOrders, " +
@@ -638,6 +696,11 @@ public class ManagerFunctions {
         return report;
     }
 
+    /**
+     * Returns a string that shows full day sales data.
+     * 
+     * @return A list of menu items by popularity
+     */
     public String getZReport(){
         String query = "SELECT COUNT(orderid) AS totalOrders, SUM(orderprice) AS totalSales FROM Orders WHERE orderdate = ?";
         String report = "";
