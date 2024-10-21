@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"backend","l":"CashierFunctions"},{"p":"backend","l":"dbSetup"},{"p":"models","l":"Employee"},{"p":"models","l":"Inventory"},{"p":"backend","l":"jdbcpostgreSQL"},{"p":"backend","l":"ManagerFunctions"},{"p":"models","l":"MenuItem"},{"p":"frontend","l":"POSSystem"},{"p":"models","l":"Shift"}]

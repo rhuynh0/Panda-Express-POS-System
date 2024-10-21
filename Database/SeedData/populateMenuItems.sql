@@ -1,0 +1,23 @@
+INSERT INTO MenuItem (menuName, itemType, price)
+VALUES 
+('White Rice', 'Side', 4.40),
+('Fried Rice', 'Side', 4.40),
+('Chow Mein', 'Side', 4.40),
+('Super Greens', 'Side', 4.40),
+('Orange Chicken', 'Entree', 8.50),
+('Teriyaki Chicken', 'Entree', 8.50),
+('Broccoli Beef', 'Entree', 8.50),
+('Kung Pao Chicken', 'Entree', 8.50),
+('Beijing Beef', 'Entree', 8.50),
+('Sirloin Steak', 'Entree', 8.50),
+('Honey Walnut Shrimp', 'Entree', 11.50),
+('Honey Sesame Chicken Breast', 'Entree', 8.50),
+('Mushroom Chicken', 'Entree', 8.50),
+('Sweetfire Chicken Breast', 'Entree', 8.50),
+('String Bean Chicken Breast', 'Entree', 8.50),
+('Black Pepper Chicken', 'Entree', 8.50),
+('Blazing Bourbon Chicken', 'Entree', 8.50),
+('Chicken Egg Roll', 'Appetizer', 2.00),
+('Veggie Spring Roll', 'Appetizer', 2.00),
+('Chicken Teriyaki Bowl', 'Combo', 8.30),
+('Orange Chicken Plate', 'Combo', 9.80);

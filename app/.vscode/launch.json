@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": "frontend.PandaExpressPOS", // Adjust this to your main class
+            "classpath": [
+                "postgresql-42.2.8.jar", // Path to your JDBC JAR file
+                "${workspaceFolder}/bin"
+            ],
+            "console": "internalConsole"
+        }
+    ]
+}
